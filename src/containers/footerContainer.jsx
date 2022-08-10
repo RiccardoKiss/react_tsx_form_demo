@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../components/footer';
-import Logo from './icons/good-boy-logo.svg';
+import Logo from './assets/good-boy-logo.svg';
 
 export function FooterContainer() {
   return (

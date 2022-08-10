@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Dog from './icons/dog.svg';
+import Dog from './assets/dog.svg';
 
 const DogImage = styled.img`
   position: absolute;
