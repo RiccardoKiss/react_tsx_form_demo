@@ -1,7 +1,7 @@
 import React from 'react';
-import { HeaderContainer } from './containers/headerContainer';
+import HeaderContainer from './containers/headerContainer';
 import DogContainer from './containers/dogContainer';
-import { FooterContainer } from './containers/footerContainer';
+import FooterContainer from './containers/footerContainer';
 
 const App = () => {
   return (

@@ -1,8 +1,7 @@
-import React from 'react';
 import Footer from '../components/footer';
 import Logo from './assets/good-boy-logo.svg';
 
-export function FooterContainer() {
+const FooterContainer = () => {
   return (
     <Footer>
       <Footer.Separator />
@@ -28,3 +27,5 @@ export function FooterContainer() {
     </Footer>
   )
 }
+
+export default FooterContainer;
