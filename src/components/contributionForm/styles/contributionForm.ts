@@ -33,7 +33,7 @@ export const Title = styled.p`
 `;
 
 export const ContributionChoiceRow = styled.div`
-  box-sizing: border-box;
+  //box-sizing: border-box;
   border: 1px solid #CD8B65;
   border-radius: 24px;
   margin-bottom: 56px;
