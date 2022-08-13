@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { TypedUseSelectorHook, useSelector } from 'react-redux'
 
 // Slice
 const formSlice = createSlice({
@@ -15,6 +16,9 @@ const formSlice = createSlice({
   }
 })
 
+export type RootState = ReturnType<typeof reducer>;
+export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+
 // Actions
-export const { formStep, formContributionData, formContactData } = formSlice.actions
-export const formReducer = formSlice.reducer;
+export const { formStep, formContributionData, formContactData } = formSlice.actions;
+export const reducer = formSlice.reducer;

@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Indicator } from './styles/stepIndicator';
+import { Indicator, IndicatorProps } from './styles/stepIndicator';
 
 //const [active, setActive] = useState(false);
 
-const StepIndicator = () => {
+const StepIndicator = (props: IndicatorProps) => {
   return (
-    <Indicator isActive={false} ></Indicator>
+    <Indicator isActive={props.isActive} ></Indicator>
   )
 }
 

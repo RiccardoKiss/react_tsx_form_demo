@@ -1,5 +1,4 @@
 import ContributionForm from '../components/contributionForm';
-import StepIndicator from '../components/stepIndicator';
 import ContributionChoice from '../components/contributionChoice';
 import WalletIcon from './assets/wallet.svg';
 import PawIcon from './assets/paw.svg';
@@ -8,12 +7,6 @@ const ContributionFormContainer = () => {
   return (
     <ContributionForm>
       <ContributionForm.Wrapper>
-        <ContributionForm.StepIndicatorsRow>
-          <StepIndicator/>
-          <StepIndicator/>
-          <StepIndicator/>
-        </ContributionForm.StepIndicatorsRow>
-
         <ContributionForm.Title>Vyberte si možnosť, ako chcete pomôcť</ContributionForm.Title>
 
         <ContributionForm.ContributionChoiceRow>

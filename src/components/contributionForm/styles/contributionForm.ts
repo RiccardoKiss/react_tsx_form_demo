@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 53.975vh; /* 774px/1434px = 0.5397489 */
   width: 38.75vw;   /* 558px/1440px = 0.3875 */
   left: 17.361vw;   /* 250px/1440px = 0.17361 */
-  top: 8.996vh;     /* 129px/1434px = 0.089958158 */
+  top: 11.3667vh;     /* 163px/1434px = 0.11367 */
 `;
 
 export const Wrapper = styled.div`
