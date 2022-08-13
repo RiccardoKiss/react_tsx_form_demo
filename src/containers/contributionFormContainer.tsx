@@ -13,7 +13,9 @@ const ContributionFormContainer = () => {
           <StepIndicator/>
           <StepIndicator/>
         </ContributionForm.StepIndicatorsRow>
+
         <ContributionForm.Title>Vyberte si možnosť, ako chcete pomôcť</ContributionForm.Title>
+
         <ContributionForm.ContributionChoiceRow>
           <ContributionChoice isSelected={false} left >
             <ContributionChoice.Circle>
@@ -28,6 +30,12 @@ const ContributionFormContainer = () => {
             <ContributionChoice.Text isSelected={true}>Chcem finančne prispieť celej nadácii</ContributionChoice.Text>
           </ContributionChoice>
         </ContributionForm.ContributionChoiceRow>
+
+        <ContributionForm.ShelterLabelsRow>
+          <ContributionForm.ShelterLabel>O projekte</ContributionForm.ShelterLabel>
+          <ContributionForm.ShelterLabel>Nepovinné</ContributionForm.ShelterLabel>
+        </ContributionForm.ShelterLabelsRow>
+
       </ContributionForm.Wrapper>
     </ContributionForm>
   )

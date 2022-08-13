@@ -9,8 +9,9 @@ interface ButtonProps {
 export const Button = styled.button<ButtonProps>`
   position: flex;
   flex-direction: column;
-  height: 186px;
-  width: 278px;
+  height: 12.971vh; // 186px / 1434px = 0.1297071
+  width: 19.306vw;  // 278px / 1440px = 0.19305
+  padding: 0;
   border: 0;
   border-radius: ${(props) => props.left ? '24px 0px 0px 24px' : (props.right ? '0px 24px 24px 0px' : '0')};
   //background-color: ${(props) => props.isSelected ? 'linear-gradient(180deg, #CD8B65 0%, #BB6B3D 100%)' : '#FAF9F9'};
@@ -47,8 +48,7 @@ export const Circle = styled.div`
   height: 80px;
   margin-top: 24px;
   margin-left: 24px;
-  background-color: #2F2F2F;
-  opacity: 0.16;
+  background-color: rgba(47, 47, 47, 0.16);
   border-radius: 50%;
 `;
 

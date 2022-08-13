@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
-  height: 774px;
-  width: 558px;
-  left: 17.361vw; /* 250px/1440px = 0.17361 */
-  top: 8.996vh; /* 129px/1434px = 0.089958158 */
+  height: 53.975vh; /* 774px/1434px = 0.5397489 */
+  width: 38.75vw;   /* 558px/1440px = 0.3875 */
+  left: 17.361vw;   /* 250px/1440px = 0.17361 */
+  top: 8.996vh;     /* 129px/1434px = 0.089958158 */
 `;
 
 export const Wrapper = styled.div`
@@ -38,3 +38,22 @@ export const ContributionChoiceRow = styled.div`
   border-radius: 24px;
   margin-bottom: 56px;
 `;
+
+export const ShelterLabelsRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 13px;
+`;
+
+export const ShelterLabel = styled.p`
+  position: flex;
+  margin: 0;
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 19px;
+  color: #2F2F2F;
+`;
+
