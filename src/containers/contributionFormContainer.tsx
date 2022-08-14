@@ -1,10 +1,82 @@
 import ContributionForm from '../components/contributionForm';
 import ContributionChoice from '../components/contributionChoice';
 import ShelterDropdown from '../components/shelterDropdown';
+import PriceInput from '../components/priceInput';
+import { formContributionData, formStep, RootState, useTypedSelector } from '../formSlice';
 import WalletIcon from './assets/wallet.svg';
 import PawIcon from './assets/paw.svg';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+type ContributionFields = {
+  allShelters: boolean;
+  shelterID: number;
+  value: number;
+}
 
 const ContributionFormContainer = () => {
+  const dispatch = useDispatch();
+  
+  const formContributionChoice = useTypedSelector(state => state.FormContributionData.allShelters);
+  const formContributionShelter = useTypedSelector(state => state.FormContributionData.shelterID);
+  const formContributionValue = useTypedSelector(state => state.FormContributionData.value);
+
+  const [formData, setFormData] = useState<ContributionFields>({
+    allShelters: formContributionChoice || true,
+    shelterID: formContributionShelter || 0,
+    value: formContributionValue || 0,
+  })
+
+  // form validation checks
+  /*
+  const [errors, setErrors] = useState<ContributionFields>({});
+  const validate = (formData: ContributionFields) => {
+    let formErrors: ContributionFields = {}; // set form errors to none at start
+
+    // if contributing to specific shelter
+    if(!formData.allShelters && formData.shelterID === 0){
+      formErrors.shelterID = "Povinné pole";
+    }
+    
+    // choosing value
+    if(formData.value === 0){
+      formErrors.value = "Povinné pole";
+    }
+    return formErrors
+  }*/
+  /*
+  const [isSubmitted, setIsSubmitted] = useState(false) // state for sent status
+  const handleSubmit = (e) => {
+    e.preventDefault(); // stop form submission
+    setErrors(validate(formData)) // check errors
+    setIsSubmitted(true) // update submit status
+  }
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitted) { // check if any form errors
+        // update Redux Slice
+        dispatch(
+          formStep(2)
+        );
+        dispatch(
+          formContributionData({
+            allShelters: formData.allShelters,
+            shelterID: formData.shelterID,
+            value: formData.value
+          })
+        );
+    }
+  }, [formData, isSubmitted, dispatch, errors])*/
+
+  useEffect(() => {
+    dispatch(
+      formContributionData({
+        allShelters: formData.allShelters,
+        shelterID: formData.shelterID,
+        value: formData.value
+      })
+    );
+  }, [formData, dispatch])
 
   return (
     <ContributionForm>
@@ -12,30 +84,32 @@ const ContributionFormContainer = () => {
         <ContributionForm.Title>Vyberte si možnosť, ako chcete pomôcť</ContributionForm.Title>
 
         <ContributionForm.ContributionChoiceRow>
-          <ContributionChoice isSelected={false} left >
+          <ContributionChoice formData={formData} setFormData={setFormData} isSelected={!formData.allShelters} left >
             <ContributionChoice.Circle>
-              <ContributionChoice.Icon isSelected={false} src={WalletIcon} />
+              <ContributionChoice.Icon isSelected={!formData.allShelters} src={WalletIcon} />
             </ContributionChoice.Circle>
-            <ContributionChoice.Text isSelected={false}>Chcem finančne prispieť konkrétnemu útulku</ContributionChoice.Text>
+            <ContributionChoice.Text isSelected={!formData.allShelters}>Chcem finančne prispieť konkrétnemu útulku</ContributionChoice.Text>
           </ContributionChoice>
-          <ContributionChoice isSelected={true} right >
+          <ContributionChoice formData={formData} setFormData={setFormData} isSelected={formData.allShelters} right >
             <ContributionChoice.Circle>
-              <ContributionChoice.Icon isSelected={true} src={PawIcon} />
+              <ContributionChoice.Icon isSelected={formData.allShelters} src={PawIcon} />
             </ContributionChoice.Circle>
-            <ContributionChoice.Text isSelected={true}>Chcem finančne prispieť celej nadácii</ContributionChoice.Text>
+            <ContributionChoice.Text isSelected={formData.allShelters}>Chcem finančne prispieť celej nadácii</ContributionChoice.Text>
           </ContributionChoice>
         </ContributionForm.ContributionChoiceRow>
 
         <ContributionForm.LabelRow>
           <ContributionForm.Label>O projekte</ContributionForm.Label>
-          <ContributionForm.Label>Nepovinné</ContributionForm.Label>
+          <ContributionForm.Label>{formData.allShelters ? 'Nepovinné' : 'Povinné'}</ContributionForm.Label>
         </ContributionForm.LabelRow>
+        <ShelterDropdown formData={formData} setFormData={setFormData} />
 
-        <ShelterDropdown />
+        <ContributionForm.PriceRowLabel>Suma, ktorou chcem prispieť</ContributionForm.PriceRowLabel>
+        <ContributionForm.PriceRow>
+          <PriceInput formData={formData} setFormData={setFormData} />
+        </ContributionForm.PriceRow>
 
-        <ContributionForm.LabelRow>
-          <ContributionForm.Label>Suma, ktorou chcem prispieť</ContributionForm.Label>
-        </ContributionForm.LabelRow>
+        
 
       </ContributionForm.Wrapper>
     </ContributionForm>

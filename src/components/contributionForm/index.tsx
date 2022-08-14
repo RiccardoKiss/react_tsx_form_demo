@@ -6,7 +6,8 @@ import {
   ContributionChoiceRow,
   LabelRow,
   Label,
-  ShelterDropdown 
+  PriceRow,
+  PriceRowLabel 
 } from './styles/contributionForm';
 
 export default function ContributionForm ({ children, ...props }: { children: any }): JSX.Element {
@@ -37,6 +38,10 @@ ContributionForm.Label =  function ContributionFormLabel ({ children, ...props }
   return <Label { ...props }>{ children }</Label>;
 }
 
-ContributionForm.ShelterDropdown =  function ContributionFormShelterDropdown ({ ...props }): JSX.Element {
-  return <ShelterDropdown { ...props }></ShelterDropdown>;
+ContributionForm.PriceRow =  function ContributionFormPriceRow ({ children, ...props }: { children: any }): JSX.Element {
+  return <PriceRow { ...props }>{ children }</PriceRow>;
+}
+
+ContributionForm.PriceRowLabel =  function ContributionFormPriceRowLabel ({ children, ...props }: { children: any }): JSX.Element {
+  return <PriceRowLabel { ...props }>{ children }</PriceRowLabel>;
 }

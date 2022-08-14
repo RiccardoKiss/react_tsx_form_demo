@@ -57,13 +57,23 @@ export const Label = styled.p`
   color: #2F2F2F;
 `;
 
-export const ShelterDropdown = styled.button`
+export const PriceRow = styled.div`
   position: flex;
-  height: 74px;
-  margin-top: 15px;
-  margin-bottom: 40px;
-  background: #FFFFFF;
-  border: 1px solid #DFDFDF;
-  border-radius: 8px;
+  height: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 72px;
+`;
+
+export const PriceRowLabel = styled.p`
+  position: flex;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 19px;
+  color: #2F2F2F;
 `;
 

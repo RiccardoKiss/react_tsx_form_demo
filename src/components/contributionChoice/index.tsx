@@ -1,7 +1,36 @@
 import { Button, Text, Circle, Icon } from './styles/contributionChoice';
 
-export default function ContributionChoice ({ children, ...props }: { isSelected: boolean, left?: boolean, right?: boolean, children: any }): JSX.Element {
-  return <Button { ...props }>{ children }</Button>;
+type ContributionFields = {
+  allShelters: boolean;
+  shelterID: number;
+  value: number;
+}
+
+export default function ContributionChoice ({ children, ...props }: { 
+  formData: ContributionFields, 
+  setFormData: React.Dispatch<React.SetStateAction<ContributionFields>>, 
+  isSelected: boolean, 
+  left?: boolean, 
+  right?: boolean, 
+  children: any 
+  }): JSX.Element {
+  
+  const handleClick = () => {
+    if(props.left === true) {
+      props.setFormData(({
+        ...props.formData,
+        allShelters: false
+      }));
+    }
+    if(props.right === true) {
+      props.setFormData(({
+        ...props.formData,
+        allShelters: true
+      }));
+    }
+  };
+
+  return( <Button onClick={handleClick} { ...props }>{ children }</Button>);
 }
 
 ContributionChoice.Text =  function ContributionChoiceText ({ children, ...props }: { isSelected: boolean, children: any }): JSX.Element {

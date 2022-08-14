@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -23,6 +22,7 @@ const placeholderStyles = () => {
     color: '#9F9F9F',
     fontWeight: 400,
     marginBottom: 0,
+    marginTop: 17,
   };
 }
 
@@ -41,8 +41,16 @@ type Shelter = {
   name: string;
 }
 
+type ContributionFields = {
+  allShelters: boolean;
+  shelterID: number;
+  value: number;
+}
 
-const ShelterDropdown = () => {
+const ShelterDropdown = ({ ...props } : { 
+  formData: ContributionFields, 
+  setFormData: React.Dispatch<React.SetStateAction<ContributionFields>>
+  }): JSX.Element => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [shelter, setShelter] = useState<Shelter>({id: 0, name: ''});
   const [shelters, setShelters] = useState<Shelter[]>([]);
@@ -59,8 +67,12 @@ const ShelterDropdown = () => {
   }
 
   const handleChange = (event: SelectChangeEvent) => {
-    //console.log(event.target);
     setShelter(shelters[parseInt(event.target.value)-1] as Shelter);
+    const {name, value} = event.target;
+    props.setFormData(({
+      ...props.formData,
+      shelterID: parseInt(value)
+    }));
   }
 
   useEffect(() => {

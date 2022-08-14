@@ -6,8 +6,17 @@ const formSlice = createSlice({
   name: "form",
   initialState: {
     FormStep: 1,
-    FormContributionData: "",
-    FormContactData: ""
+    FormContributionData: {
+      allShelters: true,
+      shelterID: 0,
+      value: 0
+    },
+    FormContactData: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+    }
   },
   reducers: {
     formStep: (state, action) => { state.FormStep = action.payload },
