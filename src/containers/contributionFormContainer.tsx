@@ -2,7 +2,7 @@ import ContributionForm from '../components/contributionForm';
 import ContributionChoice from '../components/contributionChoice';
 import ShelterDropdown from '../components/shelterDropdown';
 import PriceInput from '../components/priceInput';
-import { formContributionData, formStep, RootState, useTypedSelector } from '../formSlice';
+import { formContributionData, formStep, useTypedSelector } from '../formSlice';
 import WalletIcon from './assets/wallet.svg';
 import PawIcon from './assets/paw.svg';
 import { useEffect, useState } from 'react';

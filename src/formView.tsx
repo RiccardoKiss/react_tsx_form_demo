@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ContributionFormContainer from './containers/contributionFormContainer';
+import ContactFormContainer from './containers/contactFormContainer';
 import StepIndicator from './components/stepIndicator';
-import { RootState, useTypedSelector } from './formSlice';
+import { useTypedSelector } from './formSlice';
 
 
 const FormView = () => {
@@ -20,6 +21,7 @@ const FormView = () => {
         <StepIndicator isActive={(pageStep === 3)} />
       </div>
       {(pageStep === 1) && <ContributionFormContainer />}
+      {(pageStep === 2) && <ContactFormContainer />}
       
       
       
