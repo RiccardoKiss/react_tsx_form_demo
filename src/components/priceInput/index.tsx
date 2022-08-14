@@ -7,6 +7,7 @@ type ContributionFields = {
   shelterID: number;
   value: number;
 }
+
 const labelStyles = () => {
   return {
     fontFamily: 'Public Sans',

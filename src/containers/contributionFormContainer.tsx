@@ -8,6 +8,7 @@ import PawIcon from './assets/paw.svg';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PriceButton from '../components/priceButton';
+import ContinueButton from '../components/continueButton';
 
 type ContributionFields = {
   allShelters: boolean;
@@ -27,47 +28,6 @@ const ContributionFormContainer = () => {
     shelterID: formContributionShelter || 0,
     value: formContributionValue || 0,
   })
-
-  // form validation checks
-  /*
-  const [errors, setErrors] = useState<ContributionFields>({});
-  const validate = (formData: ContributionFields) => {
-    let formErrors: ContributionFields = {}; // set form errors to none at start
-
-    // if contributing to specific shelter
-    if(!formData.allShelters && formData.shelterID === 0){
-      formErrors.shelterID = "Povinné pole";
-    }
-    
-    // choosing value
-    if(formData.value === 0){
-      formErrors.value = "Povinné pole";
-    }
-    return formErrors
-  }*/
-  /*
-  const [isSubmitted, setIsSubmitted] = useState(false) // state for sent status
-  const handleSubmit = (e) => {
-    e.preventDefault(); // stop form submission
-    setErrors(validate(formData)) // check errors
-    setIsSubmitted(true) // update submit status
-  }
-
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitted) { // check if any form errors
-        // update Redux Slice
-        dispatch(
-          formStep(2)
-        );
-        dispatch(
-          formContributionData({
-            allShelters: formData.allShelters,
-            shelterID: formData.shelterID,
-            value: formData.value
-          })
-        );
-    }
-  }, [formData, isSubmitted, dispatch, errors])*/
 
   useEffect(() => {
     dispatch(
@@ -116,7 +76,9 @@ const ContributionFormContainer = () => {
           <PriceInput formData={formData} setFormData={setFormData} />
         </ContributionForm.PriceRow>
 
-        
+        <div style={{display: 'flex', flexDirection: 'row-reverse'}}>
+          <ContinueButton formData={formData}><ContinueButton.Text>Pokračovať</ContinueButton.Text></ContinueButton>
+        </div>
 
       </ContributionForm.Wrapper>
     </ContributionForm>
