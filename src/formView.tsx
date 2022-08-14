@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import ContributionFormContainer from './containers/contributionFormContainer';
 import ContactFormContainer from './containers/contactFormContainer';
+import RevisionContainer from './containers/revisionContainer';
 import StepIndicator from './components/stepIndicator';
 import { useTypedSelector } from './formSlice';
 
@@ -22,6 +22,7 @@ const FormView = () => {
       </div>
       {(pageStep === 1) && <ContributionFormContainer />}
       {(pageStep === 2) && <ContactFormContainer />}
+      {(pageStep === 3) && <RevisionContainer />}
       
       
       

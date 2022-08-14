@@ -28,7 +28,7 @@ const ContributionFormContainer = () => {
     phone: formContactPhone || ""
   })
 
-  useEffect(() => {
+  /*useEffect(() => {
     dispatch(
       formContactData({
         firstName: formData.firstName,
@@ -37,7 +37,7 @@ const ContributionFormContainer = () => {
         phone: formData.phone
       })
     );
-  }, [formData, dispatch])
+  }, [formData, dispatch])*/
 
   return (
     <ContactForm>

@@ -28,7 +28,7 @@ const ContributionFormContainer = () => {
     shelterID: formContributionShelter || 0,
     value: formContributionValue || 0,
   })
-
+  /*
   useEffect(() => {
     dispatch(
       formContributionData({
@@ -37,7 +37,7 @@ const ContributionFormContainer = () => {
         value: formData.value
       })
     );
-  }, [formData, dispatch])
+  }, [formData, dispatch])*/
 
   return (
     <ContributionForm>
