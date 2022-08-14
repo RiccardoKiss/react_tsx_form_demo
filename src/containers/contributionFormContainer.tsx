@@ -7,6 +7,7 @@ import WalletIcon from './assets/wallet.svg';
 import PawIcon from './assets/paw.svg';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import PriceButton from '../components/priceButton';
 
 type ContributionFields = {
   allShelters: boolean;
@@ -106,6 +107,12 @@ const ContributionFormContainer = () => {
 
         <ContributionForm.PriceRowLabel>Suma, ktorou chcem prispieť</ContributionForm.PriceRowLabel>
         <ContributionForm.PriceRow>
+          <PriceButton formData={formData} setFormData={setFormData} isSelected={formData.value===5} value={5}><PriceButton.Text isSelected={formData.value===5}>5 €</PriceButton.Text></PriceButton>
+          <PriceButton formData={formData} setFormData={setFormData} isSelected={formData.value===10} value={10}><PriceButton.Text isSelected={formData.value===10}>10 €</PriceButton.Text></PriceButton>
+          <PriceButton formData={formData} setFormData={setFormData} isSelected={formData.value===20} value={20}><PriceButton.Text isSelected={formData.value===20}>20 €</PriceButton.Text></PriceButton>
+          <PriceButton formData={formData} setFormData={setFormData} isSelected={formData.value===30} value={30}><PriceButton.Text isSelected={formData.value===30}>30 €</PriceButton.Text></PriceButton>
+          <PriceButton formData={formData} setFormData={setFormData} isSelected={formData.value===50} value={50}><PriceButton.Text isSelected={formData.value===50}>50 €</PriceButton.Text></PriceButton>
+          <PriceButton formData={formData} setFormData={setFormData} isSelected={formData.value===100} value={100}><PriceButton.Text isSelected={formData.value===100}>100 €</PriceButton.Text></PriceButton>
           <PriceInput formData={formData} setFormData={setFormData} />
         </ContributionForm.PriceRow>
 
