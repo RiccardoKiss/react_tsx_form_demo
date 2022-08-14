@@ -4,8 +4,9 @@ import {
   StepIndicatorsRow, 
   Title, 
   ContributionChoiceRow,
-  ShelterLabelsRow,
-  ShelterLabel 
+  LabelRow,
+  Label,
+  ShelterDropdown 
 } from './styles/contributionForm';
 
 export default function ContributionForm ({ children, ...props }: { children: any }): JSX.Element {
@@ -28,10 +29,14 @@ ContributionForm.ContributionChoiceRow =  function ContributionFormContributionC
   return <ContributionChoiceRow { ...props }>{ children }</ContributionChoiceRow>;
 }
 
-ContributionForm.ShelterLabelsRow =  function ContributionFormShelterLabelsRow ({ children, ...props }: { children: any }): JSX.Element {
-  return <ShelterLabelsRow { ...props }>{ children }</ShelterLabelsRow>;
+ContributionForm.LabelRow =  function ContributionFormLabelRow ({ children, ...props }: { children: any }): JSX.Element {
+  return <LabelRow { ...props }>{ children }</LabelRow>;
 }
 
-ContributionForm.ShelterLabel =  function ContributionFormShelterLabel ({ children, ...props }: { children: any }): JSX.Element {
-  return <ShelterLabel { ...props }>{ children }</ShelterLabel>;
+ContributionForm.Label =  function ContributionFormLabel ({ children, ...props }: { children: any }): JSX.Element {
+  return <Label { ...props }>{ children }</Label>;
+}
+
+ContributionForm.ShelterDropdown =  function ContributionFormShelterDropdown ({ ...props }): JSX.Element {
+  return <ShelterDropdown { ...props }></ShelterDropdown>;
 }

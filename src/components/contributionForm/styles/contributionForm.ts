@@ -39,14 +39,14 @@ export const ContributionChoiceRow = styled.div`
   margin-bottom: 56px;
 `;
 
-export const ShelterLabelsRow = styled.div`
+export const LabelRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 13px;
+  margin-bottom: 15px;
 `;
 
-export const ShelterLabel = styled.p`
+export const Label = styled.p`
   position: flex;
   margin: 0;
   font-family: 'Public Sans';
@@ -55,5 +55,15 @@ export const ShelterLabel = styled.p`
   font-size: 14px;
   line-height: 19px;
   color: #2F2F2F;
+`;
+
+export const ShelterDropdown = styled.button`
+  position: flex;
+  height: 74px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  background: #FFFFFF;
+  border: 1px solid #DFDFDF;
+  border-radius: 8px;
 `;
 

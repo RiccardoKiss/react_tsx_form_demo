@@ -1,9 +1,11 @@
 import ContributionForm from '../components/contributionForm';
 import ContributionChoice from '../components/contributionChoice';
+import ShelterDropdown from '../components/shelterDropdown';
 import WalletIcon from './assets/wallet.svg';
 import PawIcon from './assets/paw.svg';
 
 const ContributionFormContainer = () => {
+
   return (
     <ContributionForm>
       <ContributionForm.Wrapper>
@@ -24,10 +26,16 @@ const ContributionFormContainer = () => {
           </ContributionChoice>
         </ContributionForm.ContributionChoiceRow>
 
-        <ContributionForm.ShelterLabelsRow>
-          <ContributionForm.ShelterLabel>O projekte</ContributionForm.ShelterLabel>
-          <ContributionForm.ShelterLabel>Nepovinné</ContributionForm.ShelterLabel>
-        </ContributionForm.ShelterLabelsRow>
+        <ContributionForm.LabelRow>
+          <ContributionForm.Label>O projekte</ContributionForm.Label>
+          <ContributionForm.Label>Nepovinné</ContributionForm.Label>
+        </ContributionForm.LabelRow>
+
+        <ShelterDropdown />
+
+        <ContributionForm.LabelRow>
+          <ContributionForm.Label>Suma, ktorou chcem prispieť</ContributionForm.Label>
+        </ContributionForm.LabelRow>
 
       </ContributionForm.Wrapper>
     </ContributionForm>
