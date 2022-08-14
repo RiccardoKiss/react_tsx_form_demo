@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { formContributionData, formStep } from '../../formSlice';
 import { Button, Text } from './styles/continueButton';
@@ -20,6 +20,7 @@ export default function ContinueButton ({ children, ...props }: {
     shelterID: false,
     value: false
   });
+  const [validated, setValidated] = useState(false);
 
   const validate = (formData: ContributionFields) => {
     let formErrors= {
@@ -41,25 +42,32 @@ export default function ContinueButton ({ children, ...props }: {
 
   const handleClick = () => {
     setErrors(validate(props.formData)); // check errors
-    if(errors.shelterID || errors.value) {
-      let errorMessage = "";
-      if(errors.shelterID) errorMessage+= "Útulok: Povinné pole\n";
-      if(errors.value) errorMessage+= "Suma: Povinné pole\n";
-      alert(errorMessage);
-    }
-    else {
-      dispatch(
-        formStep(2)
-      );
-      dispatch(
-        formContributionData({
-          allShelters: props.formData.allShelters,
-          shelterID: props.formData.shelterID,
-          value: props.formData.value
-        })
-      );
-    }
+    setValidated(true);
   };
+
+  useEffect(() => {
+    if(validated) {
+      if(errors.shelterID || errors.value) {
+        let errorMessage = "";
+        if(errors.shelterID) errorMessage+= "Útulok: Povinné pole\n";
+        if(errors.value) errorMessage+= "Suma: Povinné pole\n";
+        alert(errorMessage);
+      }
+      else {
+        dispatch(
+          formStep(2)
+        );
+        dispatch(
+          formContributionData({
+            allShelters: props.formData.allShelters,
+            shelterID: props.formData.shelterID,
+            value: props.formData.value
+          })
+        );
+      }
+    }
+  }, [errors])
+  
 
   return(<Button onClick={handleClick} { ...props }>{ children }</Button>);
 }

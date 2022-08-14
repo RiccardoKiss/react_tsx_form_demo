@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { formContactData, formStep } from '../../formSlice';
 import { Button, Text } from './styles/continueButton2';
@@ -22,6 +22,7 @@ export default function ContinueButton2 ({ children, ...props }: {
     lastName: false,
     email: false
   });
+  const [validated, setValidated] = useState(false);
 
   const validate = (formData: ContactFields) => {
     let formErrors= {
@@ -49,27 +50,34 @@ export default function ContinueButton2 ({ children, ...props }: {
 
   const handleClick = () => {
     setErrors(validate(props.formData)); // check errors
-    if(errors.firstName || errors.lastName || errors.email) {
-      let errorMessage = "";
-      if(errors.firstName) errorMessage+= "Meno: Povinné pole\n";
-      if(errors.lastName) errorMessage+= "Priezvisko: Povinné pole\n";
-      if(errors.email) errorMessage+= "E-mailová adresa: Povinné pole\n";
-      alert(errorMessage);
-    }
-    else {
-      dispatch(
-        formStep(3)
-      );
-      dispatch(
-        formContactData({
-          firstName: props.formData.firstName,
-          lastName: props.formData.lastName,
-          email: props.formData.email,
-          phone: props.formData.phone
-        })
-      );
-    }
+    setValidated(true);
+    
   };
+
+  useEffect(() => {
+    if(validated) {
+      if(errors.firstName || errors.lastName || errors.email) {
+        let errorMessage = "";
+        if(errors.firstName) errorMessage+= "Meno: Povinné pole\n";
+        if(errors.lastName) errorMessage+= "Priezvisko: Povinné pole\n";
+        if(errors.email) errorMessage+= "E-mailová adresa: Povinné pole\n";
+        alert(errorMessage);
+      }
+      else {
+        dispatch(
+          formStep(3)
+        );
+        dispatch(
+          formContactData({
+            firstName: props.formData.firstName,
+            lastName: props.formData.lastName,
+            email: props.formData.email,
+            phone: props.formData.phone
+          })
+        );
+      }
+    }
+  }, [errors])
 
   return(<Button onClick={handleClick} { ...props }>{ children }</Button>);
 }

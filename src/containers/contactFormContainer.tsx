@@ -1,7 +1,7 @@
 import { formContactData, formStep, useTypedSelector } from '../formSlice';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import ContinueButton from '../components/continueButton';
+import TextInput from '../components/textInput';
 import ContactForm from '../components/contactForm';
 import ContinueButton2 from '../components/continueButton2';
 import PreviousButton from '../components/previousButton';
@@ -48,6 +48,10 @@ const ContributionFormContainer = () => {
           <ContactForm.Label>O vás</ContactForm.Label>
         </div>
 
+        <TextInput formData={formData} setFormData={setFormData} type={"firstName"} />
+        <TextInput formData={formData} setFormData={setFormData} type={"lastName"} />
+        <TextInput formData={formData} setFormData={setFormData} type={"email"} />
+        <TextInput formData={formData} setFormData={setFormData} type={"phone"} />
 
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
           <PreviousButton><PreviousButton.Text>Späť</PreviousButton.Text></PreviousButton>
