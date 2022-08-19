@@ -2,22 +2,21 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
-  height: 53.975vh; /* 774px/1434px = 0.5397489 */
-  width: 38.75vw;   /* 558px/1440px = 0.3875 */
-  left: 17.361vw;   /* 250px/1440px = 0.17361 */
-  top: 11.3667vh;     /* 163px/1434px = 0.11367 */
+  height: 56.787vh;   /* 774px / 1363px = 0.56787 */
+  width: 38.75vw;     /* 558px / 1440px = 0.3875 */
+  left: 17.361vw;     /* 250px / 1440px = 0.17361 */
+  top: 11.959vh;      /* 163px / 1363px = 0.11959 */
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  //justify-content: space-between;
 `;
 
 export const Title = styled.p`
   position: flex;
-  margin-bottom: 42px;
+  margin-bottom: 3.081vh;  /* 42px / 1363px = 0.03081 */
   margin-top: 0px;
   font-family: 'Hind';
   font-style: normal;
@@ -31,7 +30,7 @@ export const Title = styled.p`
 export const Label = styled.p`
   position: flex;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: 0.587vh; /* 8px / 1363px = 0.00587 */
   font-family: 'Public Sans';
   font-style: normal;
   font-weight: 800;
@@ -43,7 +42,7 @@ export const Label = styled.p`
 export const Text = styled.p`
   position: flex;
   margin: 0;
-  margin-bottom: 22px;
+  margin-bottom: 1.614vh;  /* 22px / 1363px = 0.01614 */
   font-family: 'Public Sans';
   font-style: normal;
   font-weight: 400;

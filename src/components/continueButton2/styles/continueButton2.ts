@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   position: flex;
-  //display: flex;
-  height: 4.114vh;  // 59px/1434px = 0.04114
-  //width: 8.611vw;      // 124px/1440px = 0.08611
-  padding: 20px 24px;
+  height: 4.329vh;          /* 59px / 1363px = 0.04329 */
+  //width: 8.611vw;         /* 124px / 1440px = 0.08611 */
+  padding-top: 1.467vh;     /* 20px / 1363px = 0.01467 */
+  padding-bottom: 1.467vh;  /* 20px / 1363px = 0.01467 */
+  padding-left: 1.667vw;    /* 24px / 1440px = 0.01667 */
+  padding-right: 1.667vw;   /* 24px / 1440px = 0.01667 */
   border: 0;
   border-radius: 100px;
   background: #9F9F9F;
@@ -23,8 +25,8 @@ export const Text = styled.p`
   font-family: 'Public Sans';
   font-style: normal;
   font-weight: 800;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 14px;        /* 14px / 1363px = 0.01027 */
+  line-height: 1.319vh;   /* 19px / 1440px = 0.01319 */ 
   margin: 0;
   color: #FFFFFF;
 `;

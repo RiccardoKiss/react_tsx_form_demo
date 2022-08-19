@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { formContactData, formStep } from '../../formSlice';
 import { Button, Text } from './styles/submitButton';
 
 type SubmitFields = {
@@ -17,8 +15,6 @@ export default function SubmitButton ({ children, ...props }: {
   consent: boolean,
   children: any 
   }): JSX.Element {
-  
-  const dispatch = useDispatch();
   
   const [errors, setErrors] = useState(false);
   const [validated, setValidated] = useState(false);

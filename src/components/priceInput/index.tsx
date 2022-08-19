@@ -1,28 +1,12 @@
 import React, { useState } from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import { LabelStyles, InputStyles } from './styles/priceInput';
 
 type ContributionFields = {
   allShelters: boolean;
   shelterID: number;
   value: number;
-}
-
-const labelStyles = () => {
-  return {
-    fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontSize: 16,
-    color: '#2F2F2F',
-    fontWeight: 800,
-  };
-}
-
-const inputStyles = () => {
-  return {
-    position: 'flex',
-    width: '5.972vw'  // 86px/1440px = 0.05972
-  };
 }
 
 const PriceInput = ({ ...props } : { 
@@ -44,10 +28,10 @@ const PriceInput = ({ ...props } : {
   return(
     <OutlinedInput
       id="outlined-adornment-price"
-      sx={inputStyles()}
+      sx={InputStyles()}
       value={price}
       onChange={handleChange}
-      endAdornment={<InputAdornment position="end"><p style={labelStyles()}>€</p></InputAdornment>}
+      endAdornment={<InputAdornment position="end"><p style={LabelStyles()}>€</p></InputAdornment>}
     />
   )
 }

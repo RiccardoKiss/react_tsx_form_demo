@@ -1,7 +1,6 @@
 import { 
   Container, 
   Wrapper, 
-  StepIndicatorsRow, 
   Title, 
   ContributionChoiceRow,
   LabelRow,
@@ -16,10 +15,6 @@ export default function ContributionForm ({ children, ...props }: { children: an
 
 ContributionForm.Wrapper =  function ContributionFormWrapper ({ children, ...props }: { children: any }): JSX.Element {
   return <Wrapper { ...props }>{ children }</Wrapper>;
-}
-
-ContributionForm.StepIndicatorsRow =  function ContributionFormStepIndicatorsRow ({ children, ...props }: { children: any }): JSX.Element {
-  return <StepIndicatorsRow { ...props }>{ children }</StepIndicatorsRow>;
 }
 
 ContributionForm.Title =  function ContributionFormTitle ({ children, ...props }: { children: any }): JSX.Element {

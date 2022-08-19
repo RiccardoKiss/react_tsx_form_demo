@@ -12,9 +12,11 @@ const FormView = () => {
   return (
     <>
       <div style={{ 
+        display: 'flex',
         position: 'absolute',
-        left: '17.361vw',   /* 250px/1440px = 0.17361 */
-        top: '8.996vh',     /* 129px/1434px = 0.089958158 */
+        left: '17.361vw',       /* 250px / 1440px = 0.17361 */
+        top: '9.464vh',         /* 129px / 1363px = 0.09464 */
+        marginBottom: '2.054vh' /* 28px / 1363px = 0.02054 */
       }}>
         <StepIndicator isActive={(pageStep === 1)} />
         <StepIndicator isActive={(pageStep === 2)} />

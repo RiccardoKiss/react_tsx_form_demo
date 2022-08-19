@@ -2,11 +2,10 @@ import ContributionForm from '../components/contributionForm';
 import ContributionChoice from '../components/contributionChoice';
 import ShelterDropdown from '../components/shelterDropdown';
 import PriceInput from '../components/priceInput';
-import { formContributionData, formStep, useTypedSelector } from '../formSlice';
+import { useTypedSelector } from '../formSlice';
 import WalletIcon from './assets/wallet.svg';
 import PawIcon from './assets/paw.svg';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import PriceButton from '../components/priceButton';
 import ContinueButton from '../components/continueButton';
 
@@ -17,7 +16,6 @@ type ContributionFields = {
 }
 
 const ContributionFormContainer = () => {
-  const dispatch = useDispatch();
   
   const formContributionChoice = useTypedSelector(state => state.FormContributionData.allShelters);
   const formContributionShelter = useTypedSelector(state => state.FormContributionData.shelterID);
@@ -28,16 +26,6 @@ const ContributionFormContainer = () => {
     shelterID: formContributionShelter || 0,
     value: formContributionValue || 0,
   })
-  /*
-  useEffect(() => {
-    dispatch(
-      formContributionData({
-        allShelters: formData.allShelters,
-        shelterID: formData.shelterID,
-        value: formData.value
-      })
-    );
-  }, [formData, dispatch])*/
 
   return (
     <ContributionForm>

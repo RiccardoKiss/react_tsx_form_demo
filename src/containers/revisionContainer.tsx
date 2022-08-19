@@ -1,6 +1,5 @@
-import { formContactData, formStep, useTypedSelector } from '../formSlice';
+import { useTypedSelector } from '../formSlice';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import Revision from '../components/revision';
 import SubmitButton from '../components/submitButton';
 import PreviousButton from '../components/previousButton';
@@ -67,16 +66,7 @@ const RevisionContainer = () => {
     })
     .catch(error => {console.log(error)})
   }
-  /*useEffect(() => {
-    dispatch(
-      formContactData({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.phone
-      })
-    );
-  }, [formData, dispatch])*/
+
   useEffect(() => {
     if(!isLoaded) getShelters();
   }, [shelters]);

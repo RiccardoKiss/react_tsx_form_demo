@@ -1,41 +1,12 @@
 import React, { useState } from 'react';
 import TextField from "@mui/material/TextField";
-
+import { LabelStyles } from './styles/textInput';
 
 type ContactFields = {
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
-}
-
-const labelStyles = () => {
-  return {
-    fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontSize: 16,
-    color: '#2F2F2F',
-    fontWeight: 800,
-    margin: 0
-  };
-}
-
-const helperStyles = () => {
-  return {
-    fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontSize: 16,
-    color: '#9F9F9F',
-    fontWeight: 400
-  };
-}
-
-const inputStyles = () => {
-  return {
-    position: 'flex',
-    height: '5.139vh',  // 74px/1440px = 0.05139
-    marginBottom: '18px'
-  };
 }
 
 const TextInput = ({ ...props } : { 
@@ -78,14 +49,16 @@ const TextInput = ({ ...props } : {
   }
   
   return(
-    <TextField
-      label={<p style={labelStyles()}>{label}</p>}
-      onChange={handleChange}
-      placeholder={placeholder}
-      name={props.type}
-      value={text}
-      sx={inputStyles()}
-    />
+    <div style={{marginBottom: '1.321vh', height: '5.429vh'}}>
+      <TextField
+        label={<p style={LabelStyles()}>{label}</p>}
+        onChange={handleChange}
+        placeholder={placeholder}
+        name={props.type}
+        value={text}
+        sx={{width: '38.681vw'}}
+      />
+    </div>
   )
 
 }

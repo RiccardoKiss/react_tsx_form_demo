@@ -3,38 +3,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { InputLabel } from '@mui/material';
+import { MenuItemStyles, PlaceholderStyles, LabelStyles } from './styles/shelterDropdown';
 
-const menuItemStyles = () => {
-  return {
-    fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontSize: 16,
-    color: '#9F9F9F',
-    fontWeight: 400,
-  };
-}
-
-const placeholderStyles = () => {
-  return {
-    fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontSize: 16,
-    color: '#9F9F9F',
-    fontWeight: 400,
-    marginBottom: 0,
-    marginTop: 17,
-  };
-}
-
-const labelStyles = () => {
-  return {
-    fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontSize: 16,
-    color: '#2F2F2F',
-    fontWeight: 800,
-  };
-}
 
 type Shelter = {
   id: number;
@@ -51,6 +21,7 @@ const ShelterDropdown = ({ ...props } : {
   formData: ContributionFields, 
   setFormData: React.Dispatch<React.SetStateAction<ContributionFields>>
   }): JSX.Element => {
+
   const [isLoaded, setIsLoaded] = useState(false);
   const [shelter, setShelter] = useState<Shelter>({id: 0, name: ''});
   const [shelters, setShelters] = useState<Shelter[]>([]);
@@ -80,33 +51,31 @@ const ShelterDropdown = ({ ...props } : {
   }, [shelters]);
 
   return (
-    <div>
-      <FormControl sx={{ width: 557, height: 74 }}>
-        <InputLabel id='shelter-label' sx={labelStyles()}>Útulok</InputLabel>
-        <Select
-          displayEmpty
-          labelId='shelter-label'
-          label='Útulok'
-          value={shelter.name}
-          onChange={handleChange}
-          renderValue={(selected) => {
-            if (selected.length === 0) {
-              return <p style={placeholderStyles()}>Vyberte útulok zo zoznamu</p>;
-            }
-            return selected;
-          }}
-        >
-          <MenuItem disabled value="" style={menuItemStyles()}>
-            <p>Vyberte útulok zo zoznamu</p>
+    <FormControl sx={{ width: '38.681vw', height: '5.429vh', paddingBottom: '2.935vh' }}>
+      <InputLabel id='shelter-label' sx={LabelStyles}>Útulok</InputLabel>
+      <Select
+        displayEmpty
+        labelId='shelter-label'
+        label='Útulok'
+        value={shelter.name}
+        onChange={handleChange}
+        renderValue={(selected) => {
+          if (selected.length === 0) {
+            return <p style={PlaceholderStyles()}>Vyberte útulok zo zoznamu</p>;
+          }
+          return selected;
+        }}
+      >
+        <MenuItem disabled value="" style={MenuItemStyles()}>
+          <p>Vyberte útulok zo zoznamu</p>
+        </MenuItem>
+        {shelters.map((shelter) => (
+          <MenuItem key={shelter.id} value={shelter.id} style={MenuItemStyles()}>
+            {shelter.name}
           </MenuItem>
-          {shelters.map((shelter) => (
-            <MenuItem key={shelter.id} value={shelter.id} style={menuItemStyles()}>
-              {shelter.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 
